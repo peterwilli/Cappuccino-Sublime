@@ -201,7 +201,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\W(IB((O|@o)utlet|(A|@a)ction)|BOOL|JSO(N|bject)|SEL|id|un(ichar|signed)|IMP|Class)\W</string>
+			<string>\W(IB(Outlet|Action)|@(outlet|action)|BOOL|JSO(N|bject)|SEL|id|un(ichar|signed)|IMP|Class)\W</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -1125,7 +1125,7 @@
 		<key>objj_types</key>
 		<dict>
 			<key>match</key>
-			<string>(IB((O|@o)utlet|(A|@a)ction)|BOOL|JSO(N|bject)|SEL|id|un(ichar|signed)|IMP|Class)</string>
+			<string>(IB(Outlet|Action)|@(outlet|action)|BOOL|JSO(N|bject)|SEL|id|un(ichar|signed)|IMP|Class)</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
