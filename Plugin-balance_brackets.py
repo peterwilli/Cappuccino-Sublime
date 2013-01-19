@@ -56,15 +56,15 @@ class BalanceBracketsCommand(sublime_plugin.TextCommand):
 
         point = selection.end()
         line = self.view.line(point)
-        os.putenv("TM_CURRENT_LINE", self.view.substr(line))
-        os.putenv("TM_LINE_INDEX", unicode(self.view.rowcol(point)[1]))
-        os.putenv("TM_SUPPORT_PATH", os.getcwd())
+        os.environ["TM_CURRENT_LINE"] = self.view.substr(line).encode("utf-8")
+        os.environ["TM_LINE_INDEX"] = unicode(self.view.rowcol(point)[1])
+        os.environ["TM_SUPPORT_PATH"] = os.getcwd().encode("utf-8")
         pipe = Popen(["ruby", os.path.join(self.package_path(), self.PARSER_PATH)], shell=False, stdout=PIPE, stderr=STDOUT).stdout
         snippet = pipe.read()
         pipe.close()
 
         self.view.erase(edit, line)
-        self.view.run_command("insert_snippet", {"contents": snippet})
+        self.view.run_command("insert_snippet", {"contents": unicode(snippet, "utf-8")})
 
     def package_path(self):
         dataPath = os.path.dirname(sublime.packages_path())

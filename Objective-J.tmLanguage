@@ -22,6 +22,12 @@
 	<key>patterns</key>
 	<array>
 		<dict>
+			<key>match</key>
+			<string>^\s*@(class|global)\b</string>
+			<key>name</key>
+			<string>keyword.control.forward.js.objj</string>
+		</dict>
+		<dict>
 			<key>begin</key>
 			<string>((@)(interface|protocol))(?!.+;)\s+([A-Za-z_][A-Za-z0-9_]*)\s*((:)(?:\s*)([A-Za-z_][A-Za-z0-9_]*))?(\s|\n)?</string>
 			<key>captures</key>
